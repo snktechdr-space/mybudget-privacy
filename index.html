@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — My Budget App</title>
+<meta name="description" content="Privacy policy for My Budget App for Android. Your money records stay on your phone.">
+<style>
+  :root { --bg:#f7f8fb; --card:#ffffff; --text:#1f2937; --muted:#5b6474; --line:#e3e7ee; --brand:#1e4ed8; --soft:#eef3ff; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#0f141c; --card:#171e29; --text:#e6e9ef; --muted:#a3acbb; --line:#2a3342; --brand:#7ea2ff; --soft:#1b2640; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  header { background:#1e4ed8; color:#fff; padding:28px 16px 24px; }
+  header .wrap, main { max-width:760px; margin:0 auto; }
+  header h1 { margin:0 0 4px; font-size:1.6rem; line-height:1.25; }
+  header p { margin:0; opacity:.85; }
+  main { padding:20px 16px 48px; }
+  .meta { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin-bottom:20px; font-size:.95rem; }
+  .meta div { margin:2px 0; }
+  .meta b { display:inline-block; min-width:7.5em; }
+  .short { background:var(--soft); border-left:4px solid var(--brand); border-radius:8px; padding:4px 16px; }
+  h2 { font-size:1.25rem; margin:32px 0 8px; padding-top:8px; border-top:1px solid var(--line); }
+  h3 { font-size:1.05rem; margin:22px 0 6px; }
+  a { color:var(--brand); overflow-wrap:anywhere; }
+  code { font-size:.88em; background:var(--soft); padding:1px 5px; border-radius:4px; overflow-wrap:anywhere; }
+  ul, ol { padding-left:1.3em; }
+  li { margin:4px 0; }
+  .table { overflow-x:auto; }
+  table { border-collapse:collapse; width:100%; background:var(--card); font-size:.95rem; }
+  th, td { text-align:left; padding:8px 10px; border:1px solid var(--line); vertical-align:top; }
+  th { background:var(--soft); }
+  footer { color:var(--muted); font-size:.85rem; text-align:center; padding:0 16px 32px; }
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <h1>Privacy Policy</h1>
+  <p>My Budget App</p>
+</div></header>
+
+<main>
+<div class="meta">
+  <div><b>Last updated:</b> 19 September 2026</div>
+  <div><b>Applies to:</b> My Budget App for Android (<code>com.snktech.mybudget</code>), and its test edition My Budget (Preview) (<code>com.snktech.mybudget.preview</code>)</div>
+  <div><b>Published by:</b> Snk, an individual developer</div>
+  <div><b>Contact:</b> <a href="mailto:snktechdr@gmail.com">snktechdr@gmail.com</a></div>
+</div>
+
+<section class="short">
+<h2 style="border:0;margin-top:12px">The short version</h2>
+<p>My Budget App keeps your money records on your own phone. There is no account to create, no server of ours to sign in to, and no copy of your data on any system we control. We cannot see what you record, and we could not hand it to anyone else even if we were asked.</p>
+<p>Nothing you record leaves your phone unless you choose to send it: by exporting a backup file, by sending a problem report, or — once it is available — by backing up to your own Google Drive.</p>
+</section>
+
+<h2>What the app stores, and where</h2>
+<p>Everything you enter is written to a database file inside the app's private storage on your device:</p>
+<ul>
+  <li>the amounts, dates, categories, notes and payees you record;</li>
+  <li>the names of the people you add to your household;</li>
+  <li>your settings, including currency and whether you use Simple or Detailed mode;</li>
+  <li>any receipt images or files you attach to an entry;</li>
+  <li>your PIN, stored only as a salted PBKDF2-SHA256 hash — the PIN itself is never written down;</li>
+  <li>if you enable fingerprint or face unlock, a device token held in the Android Keystore.</li>
+</ul>
+<p>Android's own app backup is switched off (<code>allowBackup="false"</code>), so the operating system does not copy this database to Google's servers on your behalf.</p>
+<p><strong>We receive none of it.</strong> The app has no analytics, no automatic crash reporting, no advertising, and no tracking of any kind. It does not build a profile of you and does not sell or share data. The only thing that can ever reach us is a problem report you decide to send, described below.</p>
+
+<h3>If something goes wrong</h3>
+<p>When the app hits an error it writes a short technical note — what failed and where in the code — to a file only this app can read. It is kept so that you can send it to us <strong>if you choose to</strong>: "Report a problem" in Settings — and on the lock screen, for the times the app will not open — shows you the exact text first and then lets you send it wherever you like. Nothing is sent on its own, amounts and names are removed before anything is written down, and you can clear the file at any time from the same screen.</p>
+
+<h2>When data leaves your device</h2>
+<h3>1. Backup to your Google Drive — not yet available, and only if you turn it on</h3>
+<p>This option is not switched on in the current version of the app. When it is, and only if you connect Google Drive, the app packages your database and attachments, <strong>encrypts them on your device</strong> with AES-256-GCM using a passphrase you choose, and uploads only that encrypted file.</p>
+<ul>
+  <li>It goes to the <strong>app data folder of your own Google Drive</strong>, a private area only this app can read. It does not appear among your normal Drive files and is not shared with anyone.</li>
+  <li>Your passphrase never leaves your device and is never sent to Google or to us. <strong>If you forget it, the backup cannot be opened by anybody, including us.</strong></li>
+  <li>To connect, you sign in with Google. The app asks for two things: permission to use that private app folder, and your email address so it can show you which account is connected. Your email is stored on your device only.</li>
+  <li>You can disconnect at any time in Backup &amp; sync, and delete the backup files from your Google account whenever you wish.</li>
+</ul>
+<p>Google processes this under its own privacy policy: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></p>
+
+<h3>2. Backup files you export</h3>
+<p>You can export an encrypted backup file from Backup &amp; sync. It is encrypted on your device with a passphrase you choose, and it goes only where you send it — a folder, an email, a cloud drive of your choosing. We never receive it.</p>
+
+<h3>Nothing else</h3>
+<p>Apart from Google Drive backup (when available) and any file or report you send yourself, the app makes no network requests. It asks for these Android permissions and no others:</p>
+<div class="table"><table>
+  <tr><th>Permission</th><th>Why</th></tr>
+  <tr><td><code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code></td><td>Only for Google Drive backup</td></tr>
+  <tr><td><code>USE_BIOMETRIC</code>, <code>USE_FINGERPRINT</code></td><td>To unlock the app with your fingerprint or face, if you choose</td></tr>
+  <tr><td><code>POST_NOTIFICATIONS</code></td><td>To show reminders you set on notes and to-dos</td></tr>
+  <tr><td><code>RECEIVE_BOOT_COMPLETED</code></td><td>To keep those reminders after your phone restarts</td></tr>
+  <tr><td><code>com.android.vending.BILLING</code></td><td>To let Google Play handle a purchase, if you choose to buy one</td></tr>
+</table></div>
+<p>The app does not request location, contacts, camera, microphone, or access to your files beyond the ones you pick yourself when importing or attaching something. To photograph a receipt it hands off to your phone's camera app, which returns only the photo you take.</p>
+
+<h2>Paid features</h2>
+<p>Some features, such as extra household members, are unlocked by a purchase. <strong>Purchases are handled entirely by Google Play.</strong> You pay Google; we never see your card, your billing address, or your name. We keep no customer list and no record of who bought what: the app simply asks Google Play what your Google account owns and remembers the answer on your device, which is also why reinstalling or moving to a new phone restores what you bought.</p>
+<p>Google's own handling of the payment is covered by Google's privacy policy, not this one.</p>
+
+<h2>Other people in your household</h2>
+<p>You can add family members by name, so you can record what they spend. They do not sign in and do not need a phone of their own. Anything you record about them is stored on your device under your control, on the same terms as your own data. Please add other people's details only if they are content for you to do so.</p>
+
+<h2>Children</h2>
+<p>The app is not directed at children, and a child does not need an account to be included: a parent can track a child's spending without the child ever being a user. We do not knowingly collect personal information from children.</p>
+
+<h2>Keeping it safe</h2>
+<p>The database is <strong>encrypted on disk</strong> with AES-256 (SQLCipher). The key is generated on your device, kept in the Android Keystore, and never leaves it — so even someone who extracts the raw file from the phone cannot read your records. It sits in your phone's private app storage, which other apps cannot read. Your PIN is stored only as a salted hash, repeated wrong guesses are rate-limited, and backups are encrypted before they leave the device. No method of storage is perfectly secure, but because there is no central server holding everyone's records, there is no single place an attacker could go to reach other people's data.</p>
+
+<h2 id="delete">How to delete your data — My Budget App</h2>
+<p>My Budget App (published by Snk) keeps your records on your phone, not with us. So most of your data you delete yourself, straight away, with no request needed.</p>
+<div class="short">
+<h3>To delete everything the app holds on your phone</h3>
+<ol>
+  <li>Optional: keep a copy first from <strong>Settings → Backup &amp; sync → Export file</strong>.</li>
+  <li>Uninstall <strong>My Budget App</strong> (or My Budget (Preview)) from your phone, or go to Android <strong>Settings → Apps → My Budget App → Storage → Clear storage</strong>.</li>
+</ol>
+<p>This deletes <strong>all</strong> of it at once: entries, categories, budgets, goals, notes and to-dos, household members, attachments, settings, your PIN hash and the problem-report log. Nothing is kept, and there is no waiting period.</p>
+<p>To delete single items instead, remove them inside the app; they are gone from your phone immediately.</p>
+
+<h3>To delete a problem report you sent us</h3>
+<ol>
+  <li>Email <a href="mailto:snktechdr@gmail.com?subject=Delete%20my%20data%20-%20My%20Budget%20App">snktechdr@gmail.com</a> with the subject <strong>"Delete my data – My Budget App"</strong>.</li>
+  <li>Send it from the same email address you sent the report from, so we can find it.</li>
+</ol>
+<p>We delete the report and the email thread within <strong>30 days</strong> and reply to confirm. We keep nothing afterwards. A problem report contains only technical error details; amounts and names are removed before it is written.</p>
+
+<h3>Backups you made yourself</h3>
+<p>Backup files you exported, and any Google Drive backup (once that option is available), are held in your own storage or your own Google account. Delete them there; we have no access to them.</p>
+</div>
+
+<h2>Changes</h2>
+<p>If this policy changes we will update the date above and publish the new version at this address. Meaningful changes will also be noted in the app's release notes.</p>
+
+<h2>Contact</h2>
+<p><a href="mailto:snktechdr@gmail.com">snktechdr@gmail.com</a></p>
+</main>
+<footer>My Budget App · Privacy Policy</footer>
+</body>
+</html>
