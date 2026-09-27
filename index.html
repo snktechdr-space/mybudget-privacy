@@ -42,7 +42,7 @@
 
 <main>
 <div class="meta">
-  <div><b>Last updated:</b> 19 September 2026</div>
+  <div><b>Last updated:</b> 27 September 2026</div>
   <div><b>Applies to:</b> My Budget App for Android (<code>com.snktech.mybudget</code>), and its test edition My Budget (Preview) (<code>com.snktech.mybudget.preview</code>)</div>
   <div><b>Published by:</b> Snk, an individual developer</div>
   <div><b>Contact:</b> <a href="mailto:snktechdr@gmail.com">snktechdr@gmail.com</a></div>
@@ -51,7 +51,7 @@
 <section class="short">
 <h2 style="border:0;margin-top:12px">The short version</h2>
 <p>My Budget App keeps your money records on your own phone. There is no account to create, no server of ours to sign in to, and no copy of your data on any system we control. We cannot see what you record, and we could not hand it to anyone else even if we were asked.</p>
-<p>Nothing you record leaves your phone unless you choose to send it: by exporting a backup file, by sending a problem report, or — once it is available — by backing up to your own Google Drive.</p>
+<p>Nothing you record leaves your phone unless you choose to send it: by exporting a backup file, by sending a problem report, by asking for a Smart insights summary (off until you turn it on), or — once it is available — by backing up to your own Google Drive.</p>
 </section>
 
 <h2>What the app stores, and where</h2>
@@ -84,11 +84,22 @@
 <h3>2. Backup files you export</h3>
 <p>You can export an encrypted backup file from Backup &amp; sync. It is encrypted on your device with a passphrase you choose, and it goes only where you send it — a folder, an email, a cloud drive of your choosing. We never receive it.</p>
 
+<h3>3. Smart insights (AI summaries) — only if you turn it on</h3>
+<p>Smart insights writes a short summary of your month and one tip, and answers questions you ask about your spending. It is <strong>off until you turn it on in Settings</strong>, and even then it sends something <strong>only when you tap "Write my AI summary" or send a question</strong>.</p>
+<p>What is sent: the month, your totals for spending, money in and savings, your budget, and category names with amounts (a category name you typed yourself is sent as "Other"). <strong>Never sent:</strong> names, notes, dates of entries, account details, receipts, bank messages or statements, or anything about individual entries.</p>
+<p>Where it goes depends on the service you choose:</p>
+<ul>
+  <li><strong>Your own AI service.</strong> You pick a provider (for example Anthropic, OpenAI, Google Gemini, or a server you run yourself) and paste your own key. The summary figures go straight from your phone to that provider, under that provider's own privacy policy. Your key stays on your phone, in the Android Keystore, and is never included in a backup. We never see the figures or the key.</li>
+  <li><strong>My Budget AI</strong> (with the Smart insights subscription). The summary figures go to our AI server, which passes them to the AI provider we use and returns the answer. With them, the app sends the Google Play purchase token of your subscription so our server can ask Google Play that it is active. Our server keeps no figures and no answers; it keeps only a count of summaries per subscription for the current month, stored under a one-way code made from the token, not the token itself. The AI provider we use processes the figures under its own terms to produce the answer.</li>
+</ul>
+<p><strong>Ask AI about my money</strong> (part of Smart insights) lets you ask questions in your own words. The AI cannot read your records. Instead it asks the app small questions, such as "total spent in September" or "top payees for Food", and the app answers each one on your phone. What is sent: your question as you typed it, and those answers - totals per category, per payee or per period. Payee names are replaced by "Payee 1", "Payee 2" and so on unless you turn on "Let the AI see payee names"; the real names are put back on your screen only. Every answer has a "What was shared" link showing exactly what was sent. Notes, dates of single entries, account details and family members' names are never sent. The AI cannot change anything in the app.</p>
+<p>You can turn Smart insights off, or remove your key, at any time in Settings.</p>
+
 <h3>Nothing else</h3>
-<p>Apart from Google Drive backup (when available) and any file or report you send yourself, the app makes no network requests. It asks for these Android permissions and no others:</p>
+<p>Apart from Google Drive backup (when available), Smart insights summaries you ask for, and any file or report you send yourself, the app makes no network requests. It asks for these Android permissions and no others:</p>
 <div class="table"><table>
   <tr><th>Permission</th><th>Why</th></tr>
-  <tr><td><code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code></td><td>Only for Google Drive backup</td></tr>
+  <tr><td><code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code></td><td>Only for Google Drive backup and Smart insights, if you use them</td></tr>
   <tr><td><code>USE_BIOMETRIC</code>, <code>USE_FINGERPRINT</code></td><td>To unlock the app with your fingerprint or face, if you choose</td></tr>
   <tr><td><code>POST_NOTIFICATIONS</code></td><td>To show reminders you set on notes and to-dos</td></tr>
   <tr><td><code>RECEIVE_BOOT_COMPLETED</code></td><td>To keep those reminders after your phone restarts</td></tr>
@@ -97,7 +108,7 @@
 <p>The app does not request location, contacts, camera, microphone, or access to your files beyond the ones you pick yourself when importing or attaching something. To photograph a receipt it hands off to your phone's camera app, which returns only the photo you take.</p>
 
 <h2>Paid features</h2>
-<p>Some features, such as extra household members, are unlocked by a purchase. <strong>Purchases are handled entirely by Google Play.</strong> You pay Google; we never see your card, your billing address, or your name. We keep no customer list and no record of who bought what: the app simply asks Google Play what your Google account owns and remembers the answer on your device, which is also why reinstalling or moving to a new phone restores what you bought.</p>
+<p>Some features, such as extra household members, are unlocked by a purchase. <strong>Purchases are handled entirely by Google Play.</strong> You pay Google; we never see your card, your billing address, or your name. We keep no customer list and no record of who bought what: the app simply asks Google Play what your Google account owns and remembers the answer on your device, which is also why reinstalling or moving to a new phone restores what you bought. The one exception is the Smart insights subscription: to answer, our AI server asks Google Play whether your subscription is active, as described above.</p>
 <p>Google's own handling of the payment is covered by Google's privacy policy, not this one.</p>
 
 <h2>Other people in your household</h2>
