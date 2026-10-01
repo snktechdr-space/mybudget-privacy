@@ -42,7 +42,7 @@
 
 <main>
 <div class="meta">
-  <div><b>Last updated:</b> 27 September 2026</div>
+  <div><b>Last updated:</b> 1 October 2026</div>
   <div><b>Applies to:</b> My Budget App for Android (<code>com.snktech.mybudget</code>), and its test edition My Budget (Preview) (<code>com.snktech.mybudget.preview</code>)</div>
   <div><b>Published by:</b> Snk, an individual developer</div>
   <div><b>Contact:</b> <a href="mailto:snktechdr@gmail.com">snktechdr@gmail.com</a></div>
@@ -52,6 +52,7 @@
 <h2 style="border:0;margin-top:12px">The short version</h2>
 <p>My Budget App keeps your money records on your own phone. There is no account to create, no server of ours to sign in to, and no copy of your data on any system we control. We cannot see what you record, and we could not hand it to anyone else even if we were asked.</p>
 <p>Nothing you record leaves your phone unless you choose to send it: by exporting a backup file, by sending a problem report, by asking for a Smart insights summary (off until you turn it on), or — once it is available — by backing up to your own Google Drive.</p>
+<p>Two Google components inside the app (for purchases, and for reading text in pictures) send Google technical diagnostics such as your phone model and app version. They never send your records. See <a href="#google-components">Google components in the app</a>.</p>
 </section>
 
 <h2>What the app stores, and where</h2>
@@ -65,7 +66,10 @@
   <li>if you enable fingerprint or face unlock, a device token held in the Android Keystore.</li>
 </ul>
 <p>Android's own app backup is switched off (<code>allowBackup="false"</code>), so the operating system does not copy this database to Google's servers on your behalf.</p>
-<p><strong>We receive none of it.</strong> The app has no analytics, no automatic crash reporting, no advertising, and no tracking of any kind. It does not build a profile of you and does not sell or share data. The only thing that can ever reach us is a problem report you decide to send, described below.</p>
+<p><strong>We receive none of it.</strong> We have no analytics of our own, no automatic crash reporting, no advertising, and no tracking of any kind. The app does not build a profile of you and does not sell or share data. The only thing that can ever reach us is a problem report you decide to send, described below. (Two Google components send Google their own technical diagnostics — see <a href="#google-components">Google components in the app</a>.)</p>
+
+<h3>Bank messages, statements and screenshots</h3>
+<p>When you paste a bank message, open a statement file, or choose a screenshot or photo, the app reads it <strong>on your phone</strong> and shows you what it found before anything is added. The message, file or picture is not saved and not sent to us or to anyone. Reading the text in a picture or a scanned statement uses Google's ML Kit, which also runs on your phone; what it reports to Google is described in <a href="#google-components">Google components in the app</a>.</p>
 
 <h3>If something goes wrong</h3>
 <p>When the app hits an error it writes a short technical note — what failed and where in the code — to a file only this app can read. It is kept so that you can send it to us <strong>if you choose to</strong>: "Report a problem" in Settings — and on the lock screen, for the times the app will not open — shows you the exact text first and then lets you send it wherever you like. Nothing is sent on its own, amounts and names are removed before anything is written down, and you can clear the file at any time from the same screen.</p>
@@ -90,16 +94,24 @@
 <p>Where it goes depends on the service you choose:</p>
 <ul>
   <li><strong>Your own AI service.</strong> You pick a provider (for example Anthropic, OpenAI, Google Gemini, or a server you run yourself) and paste your own key. The summary figures go straight from your phone to that provider, under that provider's own privacy policy. Your key stays on your phone, in the Android Keystore, and is never included in a backup. We never see the figures or the key.</li>
-  <li><strong>My Budget AI</strong> (with the Smart insights subscription). The summary figures go to our AI server, which passes them to the AI provider we use and returns the answer. With them, the app sends the Google Play purchase token of your subscription so our server can ask Google Play that it is active. Our server keeps no figures and no answers; it keeps only a count of summaries per subscription for the current month, stored under a one-way code made from the token, not the token itself. The AI provider we use processes the figures under its own terms to produce the answer.</li>
+  <li><strong>My Budget AI</strong> (with the Smart insights subscription). The summary figures go to our AI server, which passes them to the AI provider we use and returns the answer. With them, the app sends the Google Play purchase token of your subscription so our server can ask Google Play that it is active. Our server keeps no figures and no answers; it keeps only a count of summaries per subscription for the current month, stored under a one-way code made from the token, not the token itself. The AI provider we use processes the figures under its own terms to produce the answer.<br>While the app is being tested and My Budget AI is free, the app sends a shared test pass instead of a purchase token. The counts are then kept per internet (IP) address, again under a one-way code made from it, not the address itself.</li>
 </ul>
 <p><strong>Ask AI about my money</strong> (part of Smart insights) lets you ask questions in your own words. The AI cannot read your records. Instead it asks the app small questions, such as "total spent in September" or "top payees for Food", and the app answers each one on your phone. What is sent: your question as you typed it, and those answers - totals per category, per payee or per period. Payee names are replaced by "Payee 1", "Payee 2" and so on unless you turn on "Let the AI see payee names"; the real names are put back on your screen only. Every answer has a "What was shared" link showing exactly what was sent. Notes, dates of single entries, account details and family members' names are never sent. The AI cannot change anything in the app.</p>
 <p>You can turn Smart insights off, or remove your key, at any time in Settings.</p>
 
+<h3 id="google-components">4. Google components in the app</h3>
+<p>The app contains two components made by Google that send Google technical information of their own. We do not receive it.</p>
+<ul>
+  <li><strong>Google Play Billing</strong>, which handles purchases. Each time the app starts it connects to Google Play, and it sends Google diagnostics about that connection.</li>
+  <li><strong>ML Kit text recognition</strong>, which reads the writing in a screenshot, photo or scanned statement on your phone. When you read a picture, it sends Google: your device model, Android version and hardware, the app's name and version, an ID made for this installation (not meant to identify you or your phone), how long the reading took, and the picture's format and size.</li>
+</ul>
+<p>Neither sends your records, your pictures, or the text read from them. Google says it uses this information for diagnostics and usage analytics, encrypts it in transit, and does not pass it to third parties; Google's privacy policy covers it: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>. These components cannot be switched off without removing purchases and picture reading from the app.</p>
+
 <h3>Nothing else</h3>
-<p>Apart from Google Drive backup (when available), Smart insights summaries you ask for, and any file or report you send yourself, the app makes no network requests. It asks for these Android permissions and no others:</p>
+<p>Apart from Google Drive backup (when available), Smart insights summaries you ask for, the Google diagnostics described above, and any file or report you send yourself, the app makes no network requests. It asks for these Android permissions and no others:</p>
 <div class="table"><table>
   <tr><th>Permission</th><th>Why</th></tr>
-  <tr><td><code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code></td><td>Only for Google Drive backup and Smart insights, if you use them</td></tr>
+  <tr><td><code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code></td><td>For Google Drive backup and Smart insights, if you use them, and for the Google components described above</td></tr>
   <tr><td><code>USE_BIOMETRIC</code>, <code>USE_FINGERPRINT</code></td><td>To unlock the app with your fingerprint or face, if you choose</td></tr>
   <tr><td><code>POST_NOTIFICATIONS</code></td><td>To show reminders you set on notes and to-dos</td></tr>
   <tr><td><code>RECEIVE_BOOT_COMPLETED</code></td><td>To keep those reminders after your phone restarts</td></tr>
